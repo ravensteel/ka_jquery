@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>ka</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class=".article" id="article"></div>
+
+<script id="ad-template" type="x-tmpl-mustache">
+    <b>{{title}}</b>, {{price}}
+    <div id="photo" class="photo"></div>
+    <div class="gallery" id="gallery">
+    {{#images}}
+      <a href data-id="{{full}}"><img src="data/images/{{thumb}}"></a>
+    {{/images}}
+    </div>
+    {{#attributes}}
+      <p>{{location}}</p>
+    {{/attributes}}
+    <p>{{description}}</p>
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/mustache/mustache.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({app,.tmp}) scripts/main.js -->
+<script src="scripts/service.js"></script>
+<script src="scripts/gallery.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>
