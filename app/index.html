@@ -1,46 +1,76 @@
 <!doctype html>
-<html class="no-js">
+<html>
 <head>
   <meta charset="utf-8">
-  <title>ka</title>
+  <title>eBay Kleinanzeigen</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<!--[if lt IE 10]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
-<![endif]-->
+<div class="container">
+  <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+  <![endif]-->
 
-<div class=".article" id="article"></div>
+  <div class="header">
+    <div class="navbar" role="navigation">
+      <a href="http://kleinanzeigen.ebay.de"><img src="images/logo.png" alt="eBay Kleinanzeigen"></a>
+    </div>
+  </div>
+
+  <div class="article" id="article"></div>
+
+  <div class="footer">
+    <p><!-- footer is empty--></p>
+  </div>
+
+</div>
 
 <script id="ad-template" type="x-tmpl-mustache">
-    <b>{{title}}</b>, {{price}}
-    <div id="photo" class="photo"></div>
-    <div class="gallery" id="gallery">
+  <h1 class="title">{{title}}</h1>
+  <div class="price">{{price}}</div>
+
+  <div class="photo" id="photo"></div>
+
+  <ul class="gallery" id="gallery">
     {{#images}}
-      <a href data-id="{{full}}"><img src="data/images/{{thumb}}"></a>
+    <li><a href data-id="{{full}}"><img src="data/images/{{thumb}}"></a></li>
     {{/images}}
+  </ul>
+
+    <div class="details">
+      <h2>Details</h2>
+      <ul class="attributes">
+      {{#attributes}}
+        <li class="label">Standort:</li>
+        <li class="value">{{location}}</li>
+
+        <li class="label">Erstellungsdatum:</li>
+        <li class="value">{{creationdate}}</li>
+
+        <li class="label">Anzeigennummer:</li>
+        <li class="value">{{adid}}</li>
+      </ul>
+      {{/attributes}}
     </div>
-    {{#attributes}}
-      <p>{{location}}</p>
-    {{/attributes}}
-    <p>{{description}}</p>
+
+    <div class="description">
+      <h2>Beschreibung</h2>
+      <p>{{&description}}</p>
+    </div>
 </script>
 
-<!-- build:js(.) scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/mustache/mustache.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
+<script src="scripts/libs/jquery.min.js"></script>
+<script src="scripts/libs/fastclick.js"></script>
+<script src="scripts/libs/mustache.min.js"></script>
 
-<!-- build:js({app,.tmp}) scripts/main.js -->
+
 <script src="scripts/service.js"></script>
 <script src="scripts/gallery.js"></script>
 <script src="scripts/main.js"></script>
-<!-- endbuild -->
+
 </body>
 </html>

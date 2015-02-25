@@ -8,6 +8,9 @@
   //initiate data loading on ready
   $(function(){
 
+    //fast click for mobile
+    FastClick.attach(document.body);
+
     //pre-compile template
     adTemplate = $('#ad-template').html();
     Mustache.parse(adTemplate);

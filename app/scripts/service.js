@@ -19,7 +19,10 @@
   };
 
   Service.prototype.load = function(){
-    $.get(AD_URL, dataLoaded);
+    $.ajax({
+      url: AD_URL,
+      success: dataLoaded
+    });
   };
 
   //--- private functions ---//
